@@ -1,3 +1,10 @@
+# OSPO Discussions
+
+![Octocats Collaborating](https://octodex.github.com/images/collabocats.jpg)
+
+## Introduction
+
+This was a public repository for discussions relating to Open Source Program Offices on GitHub. We archived the repository in April 2024 as it did not get sufficient activity to keep open.
 # GitHub Codespaces ♥️ React
 
 Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
