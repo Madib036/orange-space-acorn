@@ -1,61 +1,47 @@
-"name": "@vitejs/plugin-legacy",
-  "version": "5.4.2",
-  "license": "MIT",
-  "author": "Madeline Brown",
-  "files": [
-    "dist"
-  ],
+{
+  "name": "@primer/primitives",
+  "version": "4.3.2",
+  "description": "Typography, spacing, and color primitives for Primer design system",
+  "files": ["dist"],
+  "main": "dist/js/index.js",
+  "types": "dist/js/index.d.ts",
+  "repository": "https://github.com/primer/primitives",
   "keywords": [
-    "frontend",
-    "vite",
-    "vite-plugin",
-    "@vitejs/plugin-legacy"
+    "primitives",
+    "colors",
+    "spacing",
+    "typography",
+    "variables",
+    "design-system"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "scripts": {
-    "dev": "unbuild --stub",
-    "build": "unbuild && pnpm run patch-cjs",
-    "patch-cjs": "tsx ../../scripts/patchCJS.ts",
-    "prepublishOnly": "npm run build"
-  },
-  "engines": {
-    "node": "^18.0.0 || >=20.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vitejs/vite.git",
-    "directory": "packages/plugin-legacy"
-  },
+  "author": "GitHub, Inc.",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vitejs/vite/issues"
+    "url": "https://github.com/primer/primitives/issues"
   },
-  "homepage": "https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#readme",
-  "funding": "https://github.com/vitejs/vite?sponsor=1",
-  "dependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
-    "browserslist": "^4.23.3",
-    "browserslist-to-esbuild": "^2.1.1",
-    "core-js": "^3.38.1",
-    "magic-string": "^0.30.11",
-    "regenerator-runtime": "^0.14.1",
-    "systemjs": "^6.15.1"
-  },
-  "peerDependencies": {
-    "terser": "^5.4.0",
-    "vite": "^5.0.0"
+  "homepage": "https://github.com/primer/primitives#readme",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "ts-node ./script/build.ts && tsc",
+    "prepack": "yarn build",
+    "watch": "ls data/**/*.scss script/**/*.ts | entr -s 'yarn build'",
+    "release": "yarn build && changeset publish"
   },
   "devDependencies": {
-    "acorn": "^8.12.1",
-    "picocolors": "^1.1.0",
-    "unbuild": "^2.0.0",
-    "vite": "workspace:*"
+    "@changesets/changelog-github": "^0.3.0",
+    "@changesets/cli": "^2.11.2",
+    "@types/chalk": "^2.2.0",
+    "@types/lodash": "^4.14.163",
+    "@types/mkdirp": "^1.0.1",
+    "@types/node": "^14.0.26",
+    "camelcase-keys": "^6.2.2",
+    "chalk": "^4.1.0",
+    "deep-shape-equals": "^0.1.2",
+    "lodash": "^4.17.20",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^4.14.1",
+    "sass-extract": "^2.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.7.2"
   }
+}
