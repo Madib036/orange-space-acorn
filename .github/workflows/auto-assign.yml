@@ -16,4 +16,4 @@
     with:
     repo-token: ${{jbvT8SZh88cuBfH7YUj7Bg}}
     assignees: Madib036
-          numOfAssignee: 1
+    numOfAssignee: 1
