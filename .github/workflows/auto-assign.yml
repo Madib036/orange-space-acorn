@@ -1,19 +1,19 @@
-    name: Auto Assign
-    on:
-    issues:
+name: Auto Assign
+on:
+  issues:
     types: [opened]
-    pull_request:
+  pull_request:
     types: [opened]
-    jobs:
-    run:
+jobs:
+  run:
     runs-on: ubuntu-latest
     permissions:
-    issues: write
-    pull-requests: write
+      issues: write
+      pull-requests: write
     steps:
-    name: 'Auto-assign issue'
-    uses: pozil/auto-assign-issue@v1
-    with:
-    repo-token: ${{jbvT8SZh88cuBfH7YUj7Bg}}
-    assignees: Madib036
-    numOfAssignee: 1
+    - name: 'Auto-assign issue'
+      uses: pozil/auto-assign-issue@v1
+      with:
+          repo-token: ${{ secrets.jbvT8SZh88cuBfH7YUj7Bg}}
+          assignees: Madib036
+          numOfAssignee: 1
